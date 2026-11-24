@@ -1,0 +1,139 @@
+<div class="resumen-container p-6 min-h-screen"> 
+  
+  <div class="header flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+    <div class="mb-2 sm:mb-0">
+      <span class="font-semibold text-gray-700 text-lg">¡Hola de nuevo {{ username }}!</span>
+      <p class="text-gray-500 text-sm mt-1">Ingresa el texto que quieres resumir</p>
+    </div>
+    <button (click)="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+      Cerrar Sesión
+    </button>
+  </div>
+
+
+  <div class="form-section mb-6">
+    <h2 class="text-xl font-bold mb-2">Generar Resumen</h2>
+    <textarea placeholder="Escribe tu texto aquí..."
+              [(ngModel)]="texto" rows="6"
+              class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+    </textarea>
+    <button (click)="generarResumen()" [disabled]="cargando"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+      {{ cargando ? 'Generando...' : 'Generar Resumen' }}
+    </button>
+
+    <div *ngIf="resumenGenerado" class="resultado mt-4 p-4 bg-gray-100 rounded">
+      <h3 class="font-semibold mb-2">Resumen Generado</h3>
+      <p class="mb-2">{{ resumenGenerado }}</p>
+      <button (click)="copiarPortapapeles(resumenGenerado)"
+              class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mr-2 transition">
+        Copiar al portapapeles
+      </button>
+    </div>
+  </div>
+
+
+  <div class="historial-section mb-6" *ngIf="historial.length">
+    <h2 class="text-lg font-bold mb-2">Resúmenes generados</h2>
+    <table class="min-w-full bg-white rounded shadow overflow-hidden">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-4 py-2 text-left">No.</th>
+          <th class="px-4 py-2 text-left">Acciones</th>
+          <th class="px-4 py-2 text-left">Fecha y Hora de Creación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of historial; let i = index" class="border-b hover:bg-gray-50">
+          <td class="px-4 py-2">{{ i + 1 }}</td>
+          <td class="px-4 py-2 flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+                 alt="PDF"
+                 class="w-6 h-6 cursor-pointer hover:scale-110 transition"
+                 (click)="verPDF(item.texto_original, item.resumen)">
+            <button (click)="eliminarResumenUsuario(i)"
+                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition ml-3">
+              Eliminar
+            </button>
+          </td>
+          <td class="px-4 py-2">{{ item.created_at | date:'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="admin-section mb-6" *ngIf="isAdmin">
+    <h2 class="text-lg font-bold mb-2">Panel de Administración</h2>
+
+    <!-- BOTÓN VER / OCULTAR USUARIOS -->
+    <button (click)="administrar()"
+            class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 mb-4 transition">
+      {{ adminData.length ? 'Ocultar Usuarios' : 'Ver Usuarios' }}
+    </button>
+
+    <div *ngIf="adminData.length">
+      <table class="min-w-full bg-white rounded shadow overflow-hidden">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="px-4 py-2 text-left">No.</th>
+            <th class="px-4 py-2 text-left">Usuario</th>
+            <th class="px-4 py-2 text-left">Rol</th>
+            <th class="px-4 py-2 text-left">Resúmenes</th>
+            <th class="px-4 py-2 text-left">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let user of adminData; let ui = index" class="border-b hover:bg-gray-50">
+            <td class="px-4 py-2">{{ ui + 1 }}</td>
+            <td class="px-4 py-2">{{ user.username }}</td>
+            <td class="px-4 py-2">{{ user.role }}</td>
+
+            <td class="px-4 py-2">
+              <table class="min-w-full">
+                <tr *ngFor="let sum of user.summaries; let si = index" class="border-b hover:bg-gray-50">
+                  <td class="px-2 py-1 flex items-center">
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+                         alt="PDF"
+                         class="w-6 h-6 cursor-pointer hover:scale-110 transition"
+                         (click)="verPDF(sum.texto_original, sum.resumen)">
+
+                    <button (click)="eliminarResumen(ui, si)"
+                            class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition ml-2">
+                      Eliminar
+                    </button>
+
+                    <!-- FECHA COMPATIBLE -->
+                    <span class="ml-2 text-gray-600">
+                      {{
+                        sum.created_at ||
+                        sum.createdAt ||
+                        sum.fecha ||
+                        sum.date ||
+                        sum.created
+                        | date:'short'
+                      }}
+                    </span>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+            <td class="px-4 py-2">
+              <button (click)="eliminarUsuario(ui)"
+                      class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
+                Eliminar Usuario
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+</div>

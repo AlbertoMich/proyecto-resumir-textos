@@ -1,0 +1,15 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0057b8, #00a8ff);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Inter", Arial, sans-serif;
+}

@@ -1,0 +1,165 @@
+
+.resumen-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Inter", Arial, sans-serif;
+  color: #333;
+}
+
+
+.header {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+button {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+
+.bg-blue-500 { background: #2563eb !important; }
+.bg-blue-500:hover { background: #1e4fd6 !important; }
+
+.bg-red-500 { background: #dc2626 !important; }
+.bg-red-500:hover { background: #b91c1c !important; }
+
+.bg-green-500 { background: #16a34a !important; }
+.bg-green-500:hover { background: #15803d !important; }
+
+.bg-purple-500 { background: #7e22ce !important; }
+.bg-purple-500:hover { background: #6b1fb0 !important; }
+
+
+.form-section,
+.historial-section,
+.admin-section {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 35px;
+}
+
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  background: #fafafa;
+  transition: 0.2s ease;
+}
+
+textarea:focus {
+  border-color: #2563eb;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+thead {
+  background: #f3f4f6;
+}
+
+th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+
+td {
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+
+.pdf-icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pdf-icon:hover {
+  transform: scale(1.15);
+}
+
+td .actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resumen-usuario td {
+  border: none;
+  padding: 6px 5px;
+}
+
+
+
+.admin-section .bg-purple-500 {
+  background: #ff9800 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-weight: bold !important;
+  padding: 0.75rem 1.5rem !important;
+  transition: background 0.3s, transform 0.2s !important;
+  cursor: pointer;
+}
+
+.admin-section .bg-purple-500:hover {
+  background: #e48800 !important;
+  transform: scale(1.03);
+}
+
+
+.resumen-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+

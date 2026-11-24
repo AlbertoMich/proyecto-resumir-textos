@@ -1,0 +1,278 @@
+/* -------------------------------------- */
+/* 1. Contenedor Principal y Reset        */
+/* -------------------------------------- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a0f32;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* -------------------------------------- */
+/* 2. Blobs de Fondo (Efecto Abstracto)   */
+/* -------------------------------------- */
+.background-blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.8;
+    transition: transform 1.5s ease-in-out;
+}
+
+.blob.one {
+    background: linear-gradient(135deg, #ff00ff, #5000ff);
+    top: -50px;
+    left: -100px;
+    transform: rotate(45deg);
+}
+
+.blob.two {
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    bottom: -50px;
+    right: -100px;
+    transform: rotate(-30deg);
+}
+
+.blob.three {
+    background: linear-gradient(200deg, #ff8c00, #ff0000);
+    top: 50%;
+    right: 10%;
+    transform: translate(0, -50%);
+}
+
+/* -------------------------------------- */
+/* 3. Glass Form Box                      */
+/* -------------------------------------- */
+.glass-form-box {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+/* -------------------------------------- */
+/* 4. Botones switch login/register       */
+/* -------------------------------------- */
+.switch-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.switch-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.switch-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.switch-buttons button.active {
+    background: linear-gradient(90deg, #ff00ff, #5000ff);
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+}
+
+/* -------------------------------------- */
+/* 5. Forms y animación                   */
+/* -------------------------------------- */
+.form-wrapper {
+    position: relative;
+    height: 250px;
+    transition: transform 0.6s ease-in-out;
+    overflow: hidden;
+}
+
+.form-wrapper.show-register {
+    transform: translateX(-100%);
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.register-form {
+    left: 100%;
+}
+
+/* -------------------------------------- */
+/* 6. Icono de usuario                    */
+/* -------------------------------------- */
+.user-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.icon-head {
+    position: absolute;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.icon-body {
+    position: absolute;
+    bottom: 15px;
+    width: 50px;
+    height: 20px;
+    border-radius: 50% 50% 0 0;
+    background-color: #ffffff;
+}
+
+/* -------------------------------------- */
+/* 7. Input fields y mostrar contraseña   */
+/* -------------------------------------- */
+.input-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 0 15px;
+    height: 45px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-field input {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-field input:focus {
+    border-bottom: 2px solid #ff00ff;
+}
+
+.input-field input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.password-field {
+    display: flex;
+    align-items: center;
+}
+
+.password-field .toggle-pass {
+    cursor: pointer;
+    margin-left: 10px;
+    user-select: none;
+    color: #fff;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+.password-field .toggle-pass:hover {
+    color: #ff00ff;
+}
+
+/* -------------------------------------- */
+/* 8. Botón login/register                */
+/* -------------------------------------- */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff00ff, #5000ff);
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+    box-shadow: 0 5px 20px rgba(80, 0, 255, 0.5);
+}
+
+.login-button:hover {
+    box-shadow: 0 6px 25px rgba(255, 0, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* -------------------------------------- */
+/* 9. Mensaje de estado                   */
+/* -------------------------------------- */
+.form-message {
+    margin-top: 15px;
+    color: yellow;
+    font-weight: bold;
+}
+
+/* -------------------------------------- */
+/* 10. Responsividad                       */
+/* -------------------------------------- */
+@media (max-width: 420px) {
+    .glass-form-box {
+        padding: 30px 20px;
+    }
+
+    .form-wrapper {
+        height: 300px;
+    }
+
+    .switch-buttons button {
+        margin: 0 3px;
+        padding: 8px;
+    }
+}

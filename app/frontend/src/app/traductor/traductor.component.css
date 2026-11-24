@@ -1,0 +1,131 @@
+.asl-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0057b8;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+.topbar-left h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.welcome {
+  margin: 0.25rem 0 0 0;
+  font-size: 1rem;
+  color: #ffeb3b;
+}
+
+.username {
+  font-weight: bold;
+}
+
+/* Right section */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-btn {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.admin-btn:hover {
+  background: #e68a00;
+}
+
+/* Controles TTS */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.controls select {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+}
+
+/* Switch personalizado */
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Resto del layout */
+.content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+.camera-panel, .results-panel {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.camera-frame {
+  text-align: center;
+}
+
+.video-stream {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  background: #0057b8;
+  color: white;
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.logout-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #d32f2f;
+}

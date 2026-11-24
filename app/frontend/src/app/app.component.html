@@ -1,0 +1,9 @@
+
+<div *ngIf="mostrarBienvenida" class="welcome-container">
+  <img src="logos/uaemexlogo.png" alt="Logo" class="welcome-logo" />
+  <h1>Bienvenido</h1>
+  <a (click)="ocultarBienvenida()" routerLink="/login" class="welcome-btn">
+    Inicia sesión aquí o regístrate
+  </a>
+</div>
+<router-outlet></router-outlet>

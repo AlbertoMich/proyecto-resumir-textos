@@ -1,0 +1,24 @@
+# Framework principal
+fastapi==0.115.0
+uvicorn==0.30.0
+
+# JWT y autenticación
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Bcrypt backend (NECESARIO en Windows)
+bcrypt==4.1.2
+
+# Base de datos
+SQLAlchemy==2.0.34
+psycopg2-binary==2.9.7
+
+# Variables de entorno
+python-dotenv==1.0.1
+
+# Formularios y uploads
+python-multipart==0.0.9
+
+# PLN / IA
+transformers==4.41.0
+torch==2.2.0

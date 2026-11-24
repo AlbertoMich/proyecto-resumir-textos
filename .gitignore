@@ -1,0 +1,77 @@
+# ========================
+# 🌐 General
+# ========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+
+# ========================
+# ⚙️ Python / FastAPI backend
+# ========================
+.env
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# IDEs / VSCode
+.vscode/
+.idea/
+
+# ========================
+# 🅰️ Angular frontend
+# ========================
+# Dependencias locales
+app/frontend/node_modules/
+app/frontend/.angular/
+app/frontend/.cache/
+
+# Builds de Angular
+app/frontend/dist/
+app/frontend/tmp/
+app/frontend/out-tsc/
+
+# Archivos de ambiente
+app/frontend/environment.*.ts
+
+# ========================
+# 🐳 Docker / CI/CD
+# ========================
+# Variables y credenciales
+.env
+*.env.local
+*.env.development
+*.env.production
+
+# Archivos de build temporales
+docker-compose.override.yml
+*.pid
+*.seed
+
+# ========================
+# 🧪 GitHub Actions
+# ========================
+# Logs temporales de CI
+.github/*.log
+.github/*-cache/
+
+# ========================
+# ✅ Mantener archivos importantes
+# ========================
+!.github/workflows/
+!app/frontend/package.json
+!app/frontend/package-lock.json
+!app/frontend/angular.json
+!app/frontend/tsconfig.json
+!app/backend/requirements.txt

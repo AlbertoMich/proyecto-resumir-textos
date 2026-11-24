@@ -1,0 +1,75 @@
+<form #loginForm="ngForm" (ngSubmit)="login()" class="login-container">
+
+  <div class="background-blobs">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+  </div>
+
+  <div class="glass-form-box">
+    <div class="user-icon">
+      <div class="icon-circle">
+        <span class="icon-head"></span>
+        <span class="icon-body"></span>
+      </div>
+    </div>
+
+    <div class="input-group">
+
+      <!-- USERNAME -->
+      <div class="input-field">
+        <input 
+          type="text" 
+          placeholder="Nombre de usuario"
+          name="username"
+          required
+          [(ngModel)]="username"
+          #userField="ngModel">
+      </div>
+
+      <!-- MENSAJE ERROR -->
+      <p *ngIf="userField.invalid && userField.touched" style="color:#ff8080; font-size:14px;">
+        Nombre de usuario requerido
+      </p>
+
+      <!-- PASSWORD -->
+      <div class="input-field">
+        <input 
+          type="password" 
+          placeholder="••••••••••"
+          name="password"
+          required
+          minlength="4"
+          [(ngModel)]="password"
+          #passField="ngModel">
+      </div>
+
+      <!-- MENSAJE ERROR -->
+      <p *ngIf="passField.invalid && passField.touched" style="color:#ff8080; font-size:14px;">
+        La contraseña es requerida, mínimo 4 caracteres
+      </p>
+
+    </div>
+
+    <!-- LOGIN -->
+    <button 
+      class="login-button" 
+      [disabled]="loginForm.invalid">
+      INGRESAR
+    </button>
+
+    <!-- REGISTER -->
+    <button 
+      class="login-button"
+      type="button"
+      (click)="register()"
+      [disabled]="loginForm.invalid"
+      style="margin-top:5px; background: linear-gradient(90deg,#00ffcc,#0099ff);">
+      REGISTRARSE
+    </button>
+
+    <p style="margin-top: 15px; color: yellow;">{{ message }}</p>
+
+  </div>
+
+</form>

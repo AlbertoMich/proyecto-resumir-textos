@@ -1,0 +1,78 @@
+<div class="asl-root">
+  <header class="topbar">
+  <div class="topbar-left">
+    <h1>Traductor de Lengua de Señas</h1>
+    <p class="welcome">¡Bienvenido, <span class="username">{{ username }}</span>!</p>
+  </div>
+
+  <div class="topbar-right">
+    <button *ngIf="isAdmin" class="admin-btn" (click)="administrar()">Administrar</button>
+    <button class="logout-btn" (click)="logout()">Cerrar sesión</button>
+    <div class="controls">
+      <label class="switch">
+        <input type="checkbox" />
+        <span>Hablar automáticamente</span>
+      </label>
+      <select aria-label="Idioma TTS">
+        <option value="es-ES">Español (España)</option>
+        <option value="es-MX">Español (México)</option>
+        <option value="en-US">Inglés (EE. UU.)</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+
+  <main class="content">
+    <section class="camera-panel">
+      <div class="camera-frame">
+        <img [src]="videoUrl" alt="Cámara" class="video-stream" />
+      </div>
+
+      <div class="camera-actions">
+        <button>Encender cámara</button>
+        <button>Limpiar</button>
+        <button>Descargar</button>
+       
+      </div>
+    </section>
+
+    <section class="results-panel">
+      <div class="transcript">
+        <label>Texto reconocido</label>
+        <div class="recognized-text" aria-live="polite">
+          <p class="interim">Reconociendo…</p>
+          <p class="final">Hola, ¿cómo estás?</p>
+        </div>
+
+        <div class="result-actions">
+          <button>Copiar</button>
+          <button>Guardar</button>
+        </div>
+      </div>
+
+      <div class="tts-panel">
+        <label>Reproducción</label>
+        <div class="tts-controls">
+          <button class="play">Reproducir</button>
+          <div class="volume">
+            <label>Vol.</label>
+            <input type="range" min="0" max="1" step="0.05" />
+          </div>
+        </div>
+
+        <div class="history">
+          <label>Historial</label>
+          <ul>
+            <li>Hola — 00:01</li>
+            <li>¿Cómo estás? — 00:08</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Diseño UI — Solo interfaz; backend FastAPI conectado.</small>
+  </footer>
+</div>
